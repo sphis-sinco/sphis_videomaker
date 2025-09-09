@@ -30,10 +30,10 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
-          haxelib install hxcpp > nul
+          haxelib install hxcpp
           haxelib haxelib --global install hmm
           haxelib --global run hmm setup
-          hmm install
+          haxelib --global run hmm install
           haxelib run lime setup flixel
           haxelib run lime setup
           haxelib list
