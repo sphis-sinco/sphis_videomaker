@@ -43,23 +43,30 @@ class VideoSelector extends FlxState
 		videoText.text = '';
 
 		if (selection - 1 < 0)
-			videoText.text += '|';
+			videoText.text += '| ';
 		else
-			videoText.text += '<';
+			videoText.text += '< ';
 
-		videoText.text += videos[selection];
+		if (videos == [])
+		{
+			videoText.text += 'No videos';
+		}
+		else
+		{
+			videoText.text += videos[selection];
+		}
 
 		if (selection + 1 >= videos.length)
-			videoText.text += '|';
+			videoText.text += ' |';
 		else
-			videoText.text += '>';
+			videoText.text += ' >';
 
 		videoText.screenCenter();
-                
+
 		if (FlxG.keys.justReleased.ENTER)
 		{
-                        PlayState.video = videos[selection];
-                        FlxG.switchState(() -> new PlayState());
+			PlayState.video = videos[selection];
+			FlxG.switchState(() -> new PlayState());
 		}
 	}
 }
