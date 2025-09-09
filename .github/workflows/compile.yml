@@ -91,8 +91,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
-          haxelib setup C:/haxelib
-          haxelib install hxcpp > nul
+          haxelib setup ~/haxelib
+          haxelib install hxcpp > /dev/null
           haxelib install lime
           haxelib install openfl
           haxelib --never install flixel
@@ -122,8 +122,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
-          haxelib setup ~/haxelib
-          haxelib install hxcpp > /dev/null
+          haxelib setup C:/haxelib
+          haxelib install hxcpp > nul
           haxelib install lime
           haxelib install openfl
           haxelib --never install flixel
@@ -138,5 +138,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v4.6.2
         with:
-          name: hashLinkBuild
-          path: export/release/hl/bin
+          name: macBuild
+          path: export/release/macos/bin
