@@ -20,6 +20,7 @@ function onCreate(event:CreateEvent)
 		testVidText.size = 16;
 		testVidText.text = 'Yo!';
 		testVidText.fieldWidth = FlxG.width;
+		testVidText.alignment = 'center';
 		PlayState.instance.add(testVidText);
 
 		FlxTimer.wait(1, () ->
