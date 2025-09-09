@@ -17,7 +17,7 @@ class VideoSelector extends FlxState
 	override function create()
 	{
 		super.create();
-		ScriptManager.call('onCreate', [new CreateEvent('VIDEOMAKER_VIDEO_SELECTOR')]);
+		ScriptManager.call('onCreate', [new CreateEvent('VIDEOSCRIPTS_VIDEO_SELECTOR')]);
 
 		videoText = new FlxText(10, 10, FlxG.width, 'video', 16);
 		videoText.alignment = 'center';
@@ -28,7 +28,7 @@ class VideoSelector extends FlxState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		ScriptManager.call('onUpdate', [new UpdateEvent('VIDEOMAKER_VIDEO_SELECTOR', elapsed)]);
+		ScriptManager.call('onUpdate', [new UpdateEvent('VIDEOSCRIPTS_VIDEO_SELECTOR', elapsed)]);
 
 		if (FlxG.keys.justReleased.LEFT)
 			selection--;
