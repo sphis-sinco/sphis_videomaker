@@ -11,33 +11,9 @@ import lime.utils.Assets;
 
 class Paths
 {
-	public static function getGamePath(path:String)
+	public static function getImagePath(path:String)
 	{
-		var startsWithDir = false;
-		var dir = 'C';
-		var dirLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-		for (i in 0...dirLetters.length)
-		{
-			if (!startsWithDir)
-			{
-				// trace(dirLetters.charAt(i));
-				startsWithDir = StringTools.startsWith(path, dirLetters.charAt(i) + ':/');
-				if (startsWithDir)
-					dir = dirLetters.charAt(i);
-			}
-		}
-
-		var retpath = ((StringTools.startsWith(path, 'game/')
-			|| StringTools.startsWith(path, 'mods/')
-			|| startsWithDir) ? '' : 'game/') + path;
-
-		return retpath;
-	}
-
-	public static function getImagePath(path:String, ?game:Bool = true)
-	{
-		return (game ? getGamePath(path + '.png') : path + '.png');
+		return 'assets/' + path + '.png';
 	}
 
 	public static function getTypeArray(type:String, type_folder:String, ext:Array<String>, paths:Array<String>,
@@ -65,15 +41,15 @@ class Paths
 						final path:String = ogdir + folder + endsplitter + file;
 
 						#if typeArray_dupeFilePrevention
-						if ((!arr_rawFileNames.contains(file)) && !arr.contains(getGamePath(path)))
+						if ((!arr_rawFileNames.contains(file)) && !arr.contains(path))
 						{
 							arr_rawFileNames.push(file);
-							arr.push(getGamePath(path));
+							arr.push(path);
 						}
 						#else
-						if (!arr.contains(getGamePath(path)))
+						if (!arr.contains(path))
 						{
-							arr.push(getGamePath(path));
+							arr.push(path);
 						}
 						#end
 					}
@@ -118,13 +94,6 @@ class Paths
 		}
 		#end
 		return arr;
-	}
-
-	public static function saveContent(path:String, content:String)
-	{
-		#if sys
-		File.saveContent(path, content);
-		#end
 	}
 
 	public static function pathExists(id:String):Bool

@@ -8,6 +8,16 @@ import flixel.FlxState;
 class PlayState extends FlxState
 {
 	public static var video:String = 'unknown';
+	public static var instance:PlayState = null;
+
+	override public function new()
+	{
+		super();
+
+		if (instance != null)
+			instance = null;
+		instance = this;
+	}
 
 	override public function create()
 	{
