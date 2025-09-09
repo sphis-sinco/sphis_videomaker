@@ -138,5 +138,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v4.6.2
         with:
-          name: macBuild
+          name: hashlinkBuild
           path: export/release/hl/bin
