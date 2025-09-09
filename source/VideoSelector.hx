@@ -48,18 +48,16 @@ class VideoSelector extends FlxState
 			videoText.text += '< ';
 
 		if (videos == [])
-		{
 			videoText.text += 'No videos';
-		}
 		else
-		{
-			videoText.text += videos[selection];
-		}
+			videoText.text += '"' + videos[selection] + '"';
 
 		if (selection + 1 >= videos.length)
 			videoText.text += ' |';
 		else
 			videoText.text += ' >';
+
+		videoText.text += '\nPress enter to... enter this video';
 
 		videoText.screenCenter();
 
