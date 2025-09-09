@@ -16,7 +16,7 @@ class Main extends Sprite
 
 		ScriptManager.checkForUpdatedScripts();
 
-		addChild(new FlxGame(0, 0, PlayState));
+		addChild(new FlxGame(0, 0, VideoSelector));
 
 		#if debug
 		#if hscript
