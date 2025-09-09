@@ -41,6 +41,7 @@
 	<haxelib name="lime" />
 	<haxelib name="openfl" />
 
+	<haxelib name="hscript" />
 	<haxelib name="hscript-iris" />
 	<define name="hscriptPos" />
 

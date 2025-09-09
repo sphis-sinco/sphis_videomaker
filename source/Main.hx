@@ -1,8 +1,12 @@
 package;
 
 import flixel.FlxGame;
-import flixel.system.debug.console.ConsoleUtil;
 import openfl.display.Sprite;
+#if debug
+#if hscript
+import flixel.system.debug.console.ConsoleUtil;
+#end
+#end
 
 class Main extends Sprite
 {
@@ -12,11 +16,15 @@ class Main extends Sprite
 
 		ScriptManager.checkForUpdatedScripts();
 
+		addChild(new FlxGame(0, 0, PlayState));
+
+		#if debug
+		#if hscript
 		ConsoleUtil.registerFunction('checkForUpdatedScripts', () ->
 		{
 			ScriptManager.checkForUpdatedScripts();
 		});
-
-		addChild(new FlxGame(0, 0, PlayState));
+		#end
+		#end
 	}
 }
